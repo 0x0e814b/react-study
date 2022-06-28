@@ -53,15 +53,23 @@ React.createElement(component, props, ...children);
 ---
 
 1. 여러요소가 있을경우 감싸는 wrapper 요소가 필요하다.
+
    - VDOM 에서 변화감지를 효율적으로 하기위해 컴포넌트는 하나의 DOM Tree로 만들어야 한다는 규칙이 있음
    - 마땅한 wrapper 요소가 없을경우 React.Fragment(<></>) 를 사용하여 fragment를 생성가능
+
 2. JSX의 return fragment내 에선 if문 선언이 불가능하다.
+
    - 3항 연산자를 사용하여 조건부 렌더링이 가능
+
 3. JSX의 return 함수는 반드시 값을 반환해야한다
+
    - undefined 등의 값이 오면 parse에러가 발생하는데 이를 방지하기위해 2번처럼 if문 선언을 막은것으로 추정됨.
+
 4. JSX는 HTML과 비슷하게 생겼지만 결국엔 Javascript로 파싱되므로 기존 DOM에 사용되는 attribute는 JS 문법과 겹치면 에러가 발생할 수 있어 별도의 표기법이 존재한다.
+
    - ex) class (reference name), style (pass by object)
    - version 16 이상부터는 자동으로 변경 해 주고 경고를 띄움.
+
 5. JSX에서는 홀수로 이루어진 태그는 Component로 인식하므로 self-closing 태그가 아닌 태그는 꼭 짝을 맞춰 주어야 한다.
    - self-closing tag > img, input, hr, br ... etc
 6. JSX의 return 함수 내부에 주석을 작성할때도 Template 구문 내부에 {/_ 주석 _/} 과 같은 형식으로 작성해야 스크립트로 인식하여 주석처리가 된다. 그 외에는 텍스트로 표현됨
