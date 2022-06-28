@@ -269,7 +269,7 @@ react의 state는 생성시의 constructor 내부에서만 반영되기 때문�
 
 ---
 
-가끔 컴포넌트의 state가 비동기적으로 변경이 될 수도 있는데. 이때 this.state 값은 정확하지 않은 값 일 수도 있다. 그럴땐 setState의 인자로 콜백함수를 받아 현재 state를 기준으로 값이 사용 가능하다.
+setState는 변경 값을 모아 한번에 리렌더링 하는 배칭(batching)이라는 과정을 거쳐 비동기적으로 변경이 되기 때문에. batching이 일어나는 경우에 this.state 값은 기대하던 값이 아닐 수도 있다. 그럴땐 setState의 인자로 콜백함수를 받아 현재 state를 기준으로 값이 사용 가능하다.
 
 ```js
 // state 를 업데이트
