@@ -269,8 +269,7 @@ react의 state는 생성시의 constructor 내부에서만 반영되기 때문�
 
 ---
 
-setState는 변경 값을 모아 한번에 리렌더링 하는 배칭(batching)이라는 과정을 거쳐 비동기적으로 변경이 되기 때문에.  
-batching이 일어나는 경우에 this.state 값은 기대하던 값이 아닐 수도 있다.  
+setState는 변경 값을 모아 한번에 리렌더링 하는 배칭(batching)이라는 과정을 거쳐 비동기적으로 변경이 되기 때문에, batching이 일어나는 경우에 state 값은 기대하던 값이 아닐 수도 있다.  
 이럴땐 setState의 인자로 콜백함수를 받아 현재 state를 기준으로 값이 사용 가능하다.
 
 ```js
