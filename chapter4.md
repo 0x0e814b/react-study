@@ -14,7 +14,7 @@ button.addEventListener('click', () => { console.log('listener'); }); // Add Eve
 EventTarget.addEventListener를 실행하여 EventName에 매칭 시킨 핸들러 함수를  
 별도 구현체인 EventListenerList 에 추가하고 해당 이벤트를 감시하여 콜백을 처리한다.
 
-리액트 또한 자바스크립트로 만들어 졌기 때문에 유사한 방식으로 구현되게 된다.
+리액트 또한 자바스크립트로 만들어 졌기 때문에 동일한 방식으로 구현되게 된다.
 
 하지만 리액트에서의 이벤트 핸들링이 일반 자바스크립트의 이벤트 처리와 다른점이 몇가지 있는데,  
 그 예시로는 2장에서 알아보았던 JSX의 특성 때문에 소문자로 전부 작성할시 리액트가 내부적으로 DOM의 attribute로 해석하여 내부동작에 방해가 될 수 있기 때문에 camelCase로 작성해 주어야 한다는 점과
