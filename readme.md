@@ -12,3 +12,6 @@
 4. [이벤트핸들링](./chapter4.md)
 5. [Ref](./chapter5.md)
 6. [요소의 반복](./chapter6.md)
+7. [라이프 사이클](./chapter7.md)
+8. [Hooks](./chapter8.md)
+9. [Styling](./chapter9.md)

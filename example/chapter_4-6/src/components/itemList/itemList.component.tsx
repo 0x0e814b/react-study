@@ -1,5 +1,5 @@
 import './itemList.css';
-import { useEffect, useRef, useState } from 'react';
+import { SyntheticEvent, useEffect, useRef, useState } from 'react';
 import { iItem } from '../../types/components/item.type';
 import Item from '../item/item.component';
 import { createItem, createItemList } from '../../constant/dummies';
@@ -9,6 +9,7 @@ const ItemList = () => {
   const [items, setItems] = useState<iItem[]>(() => {
     return createItemList(5);
   });
+  const [text, setText] = useState<string>('');
 
   // 개수 체크를 위한 ref
   const lastLen = useRef(items.length);
@@ -28,13 +29,23 @@ const ItemList = () => {
     }
   }, [items]);
 
-  const addItem = () => {
+  const handleChange = (event: SyntheticEvent) => {
+    const { value } = event.target as HTMLInputElement;
+    setText(value);
+  };
+
+  const addItem = (ev: SyntheticEvent) => {
+    if (!text.length) {
+      alert("내용을 입력 해 주세요.");
+      return false;
+    }
     lastLen.current = items.length;
     const lastIdx = items[items.length - 1]?.index;
     const nextIdx = lastIdx >= 0 ? lastIdx + 1 : 0;
     const newItem = createItem(nextIdx);
+    newItem.text = text;
     setItems([...items, newItem]);
-    
+    setText('');
   };
 
   const removeItem = (itemId: string) => {
@@ -49,7 +60,8 @@ const ItemList = () => {
   return ( 
     <>
       <nav className="item-controller">
-        <button className="item-controller__button" onClick={addItem}>추가 &#43;</button>
+        <input className="item-controller__input" type="text" value={text} onChange={handleChange}/>
+        <button type="button" className="item-controller__button" onClick={addItem}>추가 &#43;</button>
       </nav>
 
       <section className="item-list" ref={scrollList}>
