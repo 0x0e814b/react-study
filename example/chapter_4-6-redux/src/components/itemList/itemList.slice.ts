@@ -27,10 +27,16 @@ export const itemListSlice = createSlice({
       const lastIdx = items[items.length - 1]?.index;
       const nextIdx = lastIdx >= 0 ? lastIdx + 1 : 0;
       const newItem = createItem(nextIdx, action.payload);
-      state.items = [...items, newItem];
+      state.items = items.concat(newItem);
     },
     removeItem: (state, action: PayloadAction<string>) => {
-      state.items = state.items.filter((item) => item.id !== action.payload);
+      const copiedItems: iItem[] = Array.from(state.items);
+      const removeIndex = copiedItems.findIndex(
+        (item: iItem) => item.id === action.payload
+      );
+      if (removeIndex === -1) return;
+      copiedItems.splice(removeIndex, 1);
+      state.items = copiedItems;
     },
   },
 });
