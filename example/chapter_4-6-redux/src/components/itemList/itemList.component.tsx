@@ -32,7 +32,6 @@ const ItemList = () => {
         <ListStyle.controllerInput type="text" value={text} onChange={handleChange} />
         <CommonButton onClick={addListItem}>추가 &#43;</CommonButton>
       </ListStyle.controller>
-
       <ListStyle.listWrapper ref={scrollList}>
         {
           items.map( ({id, text, ...rest}) => {

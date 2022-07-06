@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import type { iItem } from '../../types/components/item.type';
 import commonButton from '../commonButton/commonButton.component';
 import * as ItemStyle from './item.styled';

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 const CommonButton = styled.button`
   box-sizing: border-box;
   padding: .5rem 1rem;
